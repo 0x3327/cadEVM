@@ -1,0 +1,56 @@
+# Python-specific ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Environment-specific ignores
+venv/
+.env
+.env.*
+
+# Editor-specific ignores
+.vscode/
+.idea/
+*.swp
+
+# Build and distribution directories
+build/
+dist/
+*.egg-info/
+
+# Compiled Python files
+*.pyc
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+lib/
+lib64/
+include/
+bin/
+pip-selfcheck.json
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Compiled source
+__pycache__/
+*.pyc
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# OS or Editor temporary files
+.DS_Store
+Thumbs.db
