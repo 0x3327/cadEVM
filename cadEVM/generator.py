@@ -26,7 +26,7 @@ def init():
     existing_contracts = input("Are your contracts already deployed? (y/n): ").strip()
 
     while True:
-        provider = input("Do you choose alchemy or infura as your fork provider? (alchemy/infura): ").strip()
+        provider = input("Do you choose alchemy or infura as your provider? (alchemy/infura): ").strip()
         
         if provider.lower() == 'alchemy':
             p_name = 'alchemy'
@@ -113,7 +113,6 @@ def init():
     
     install_plugins = input("Do you want to install recommended ape plugins for CadEVM? (y/n): ").strip()
     
-    # primitive approach
     if install_plugins.lower() == 'y':
    
         subprocess.run(['ape', 'plugins', 'install', '.'], check=True)
