@@ -1,3 +1,4 @@
+# TODO make it more configurable with other providers and enable test network forks
 import os
 import click
 import yaml
@@ -21,7 +22,7 @@ def init():
 
     if os.path.exists(project_name):
         print(f"cadEVM project '{project_name}' already exists.")
-        return  # Exit the script
+        return  
     
     existing_contracts = input("Are your contracts already deployed? (y/n): ").strip()
 
@@ -30,10 +31,10 @@ def init():
         
         if provider.lower() == 'alchemy':
             p_name = 'alchemy'
-            break  # Break out of the loop if the provider is valid
+            break 
         elif provider.lower() == 'infura':
             p_name = 'infura'
-            break  # Break out of the loop if the provider is valid
+            break 
         else:           
             print("Invalid provider choice. Please choose 'alchemy' or 'infura'.")
 
@@ -107,7 +108,6 @@ def init():
     for folder_name in folder_names:
         os.makedirs(folder_name, exist_ok=True)
 
-
     with open('ape-config.yaml', 'w') as config_file:
         yaml.dump(config_data, config_file, default_flow_style=False, Dumper=yaml.SafeDumper, sort_keys=False)
     
@@ -116,8 +116,33 @@ def init():
     if install_plugins.lower() == 'y':
    
         subprocess.run(['ape', 'plugins', 'install', '.'], check=True)
+        subprocess.run(['npm', 'install', '--save-dev', 'hardhat'], check=True)
 
         print("Recommended plugins installed.")
+        
+# TODO make it more configurable
+@cli.command()
+def token_template():
+    template_name = 'cadEVM-token-template'
+    answer = input("Would you like to download the Token template? (y/n):").strip()
+
+    if os.path.exists(template_name):
+        print(f"cadEVM project '{template_name}' already exists.")
+        return
+    
+    if answer.lower() == 'y':
+        subprocess.run(['git', 'clone', 'https://github.com/alex-damjanovic/cadEVM-token-template.git'], check=True)
+        
+        template_path = os.path.join(template_name, 'Token template')
+        os.chdir(template_path)
+        
+        install_plugins = input("Would you like to install the Ape plugins in the template? (y/n):").strip()
+        if install_plugins.lower() == 'y':
+            subprocess.run(['ape', 'plugins', 'install', '.'], check=True)
+            subprocess.run(['npm', 'install', '--save-dev', 'hardhat'], check=True)
+            return 'Token template project initialized.'
+        else:
+            return 'Token template project will not be initialized. Exiting...'
 
 if __name__ == "__main__":
     cli()
