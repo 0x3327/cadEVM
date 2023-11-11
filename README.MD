@@ -74,6 +74,8 @@ hardhat:
         enable_hardhat_deployments: true
 ```
 
+In order to understand the rationale, template contains smart contracts & a  python notebook to demonstrate the usage of of this library on both previously developed contracts (DAI stablecoin contract) & contracts that are not yet deployed on the network. It uses hardhat to fork the Ethereum mainnet.
+
 ## Roadmap & Plans
 
 1. Create more modules that will make cadEVM more configurable, both in terms of initialization & usage
