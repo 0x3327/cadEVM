@@ -17,7 +17,7 @@ cadEVM is a user-friendly Python library designed to streamline the development 
 
 It relies on [Ape framework](https://github.com/ApeWorX/ape) developed by ApeWorx & [radCAD](https://github.com/CADLabs/radCAD) developed by CadLabs, cadEVM prioritizes ease-of-use for token engineers & mechanism designers familiar with cadCAD/radCAD. 
 
-To work effectively with cadEVM, it's essential to be well-versed in both the Ape framework and radCAD.
+To work effectively with cadEVM, it's essential to be familiar with both the Ape framework and radCAD.
 
 ### Goals
 
@@ -37,12 +37,13 @@ To get started with cadEVM, follow these steps:
    ```bash
    python -m venv venv
    source venv/bin/activate
-```
-3. **Instal cadEVM:**
    ```
-   cd cadEVM
-   pip install 
 
+3. **Install cadEVM:**
+   ```bash
+   cd cadEVM
+   pip install
+   ```
 ## Usage
 
 ### Initialization
@@ -59,11 +60,11 @@ You will be prompted to:
 
 **Deploying a New Project:**
 
-If you haven't deployed a project yet, initializing the cadEVM project follows the standard Ape framework procedure. The responsibility lies with the token engineer to execute the script for deploying contracts (note that an easy deployer is in development).
+If you haven't deployed contracts yet, initializing the cadEVM project follows the standard Ape framework procedure. The responsibility lies with the token engineer to execute the script for deploying contracts (note that an easy deployer is in development).
 
 **Already Deployed Project:**
 
-For an existing project, leverage the Ape Contract instance. You can manually add the ABI or utilize the `ape-etherscan` plugin (included by default) to fetch the ABI from Etherscan. Subsequently, employ the `generate_initial_state` function from the helpers module to create `initial_state_variables` based on the contract's view methods. With `ape-accounts`, you can generate accounts/agents for interactions with the deployed contract.
+For an existing contracts, leverage the Ape Contract instance. You can manually add the ABI or utilize the `ape-etherscan` plugin (included by default) to fetch the ABI from Etherscan. Subsequently, employ the `generate_initial_state` function from the helpers module to create `initial_state_variables` based on the contract's view methods. With `ape-accounts`, you can generate accounts/agents for interactions with the deployed contract.
 
 ### Token Template [POC]
 
@@ -93,19 +94,19 @@ To grasp the underlying logic, the template includes smart contracts and a Pytho
 
 ## Roadmap & Plans
 
-1. Enhance configurability: Develop additional modules to make cadEVM more configurable in terms of both initialization and usage.
-2. Agent-based properties: Create modules to address agent-based properties, enabling the easy creation of different agent types based on assumptions or the current network state.
-3. Tracking modules: Develop modules to track transaction fees, specific points of interest, etc.
-4. Framework independence: Reduce dependence on external frameworks and libraries.
-5. Improved usability: Make technical aspects, such as deploying contracts and contract details, more intuitive and user-friendly.
+1. Develop additional modules to make cadEVM more configurable in terms of both initialization and usage.
+2. Create modules to address agent-based properties, enabling the easy creation of different agent types based on assumptions or the current network state.
+3. Develop modules to track transaction fees, specific points of interest, etc.
+4. Reduce dependence on external frameworks and libraries.
+5. Make technical aspects, such as deploying contracts and contract details, more intuitive and user-friendly.
 
 ## Contributing
 
 For those eager to contribute:
 
-1. **Fork the Repository:** Contribute to this project by forking the repository to your GitHub account.
-2. **Make Changes:** Implement your enhancements or fix issues in your forked repository, ensuring your changes align with the project's goals.
-3. **Submit a Pull Request:** Once content with your changes, submit a pull request. Provide details about the modifications made and address relevant issues. Your contributions are highly appreciated!
+1. Contribute to this project by forking the repository to your GitHub account.
+2. Implement your enhancements or fix issues in your forked repository, ensuring your changes align with the project's goals.
+3. Once content with your changes, submit a pull request. Provide details about the modifications made and address relevant issues. Your contributions are highly appreciated!
 
 
 
