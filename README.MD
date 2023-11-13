@@ -42,7 +42,7 @@ To get started with cadEVM, follow these steps:
 3. **Install cadEVM:**
    ```bash
    cd cadEVM
-   pip install
+   pip install .
    ```
 ## Usage
 
