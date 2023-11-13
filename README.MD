@@ -1,4 +1,4 @@
-# cadEVM - a library to streamline developing of radCAD models on the EVM. 
+# cadEVM  
 ![cadEVM](logo.png)
 
 
@@ -12,29 +12,36 @@
 
 
 ## Project Description & Goals
-### Descrption
-cadEVM is an user-friendly pip library developed in order to streamline developing of radCAD models on the Ethereum Virtual Machine.
+### Description
+cadEVM is a user-friendly Python library designed to streamline the development of radCAD models on the Ethereum Virtual Machine (EVM).
 
-It relies on [Ape framework](https://github.com/ApeWorX/ape) developed by ApeWorx & [radCAD](https://github.com/CADLabs/radCAD) developed by CadLabs and focuses on the ease-of-use for the token engineer & mechanism designer familiar with cadCAD/radCAD. 
+It relies on [Ape framework](https://github.com/ApeWorX/ape) developed by ApeWorx & [radCAD](https://github.com/CADLabs/radCAD) developed by CadLabs, cadEVM prioritizes ease-of-use for token engineers & mechanism designers familiar with cadCAD/radCAD. 
 
-As the framework uses a lot of Ape framework & radCAD at this stage, familiarity with these frameworks are a requirement. 
-
+To work effectively with cadEVM, it's essential to be well-versed in both the Ape framework and radCAD.
 
 ### Goals
 
-1. Enable ease of use for Token Engineers to use EVM
-2. Enable mechanism & scenario testing of smart contracts via using radCAD & EVM out of the box
-3. Simulate a live environment via forking that ensures getting the same type of errors form the network.
-4. Create an open source EVM framework for creating Models that Token Engineers can easily use, especially those familiar with cadCAD/radCAD (de facto industry standard tooling)
+1. Simplify the development process for token engineers using EVM.
+2. Facilitate mechanism and scenario testing of smart contracts using radCAD and EVM out of the box.
+3. Simulate a live environment via forking and ensuring the replication of errors from the network.
+4. Create an open-source EVM framework for models that Token Engineers can easily use, especially those familiar with cadCAD/radCAD.
 
 
 ## Installation 
 
-- Clone the repo
-- Enter the terminal
-- Create a venv in the project directory via `python -m venv venv`    
-- activate it via        `source venv/bin/activate`
-- run `pip install .` in the cadEVM directory to install cadEVM
+To get started with cadEVM, follow these steps:
+
+
+1. **Clone the repo**
+2. **Create and activate a virtual environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
+```
+3. **Instal cadEVM:**
+   ```
+   cd cadEVM
+   pip install 
 
 ## Usage
 
@@ -44,19 +51,25 @@ In the directory of your choice, in the terminal run: `cadEVM init`
 
 
 You will be prompted to:
-1. Enter the name of your project
-2. Are your contracts deployed or not 
-3. Do you use Alchemy or Infura
-4. Do you want to install recommended Ape plugins.Afterwards it will install hardhat as the default fork provider in the project directory.
+1. Enter the name of your project.
+2. Indicate whether your contracts are deployed.
+3. Specify if you use Alchemy or Infura.
+4. Decide whether to install recommended Ape plugins. Afterward, it will install hardhat as the default fork provider in the project directory.
 
 
-If you do not have a project already deployed, the cadEVM project will be initialized like a standard Ape framework project & it is up to the token engineer to run the script to deploy the contracts (easy deployer is going to be developed)
+**Deploying a New Project:**
 
-If you have the project already deployed you can use the ape Contract instance and add the abi manually or `ape-etherscan` (comes with the default) plugin to fetch the abi from etherscan. Afterwards you can use the `generate_initial_state` from the helpers module to generate the initial_state_variables based on the view methods of the contract. Using `ape-accounts` you can generate accounts/agents that will interact with the deployed contract.
+If you haven't deployed a project yet, initializing the cadEVM project follows the standard Ape framework procedure. The responsibility lies with the token engineer to execute the script for deploying contracts (note that an easy deployer is in development).
 
-### Token Template  [POC]
+**Already Deployed Project:**
 
-In the directory of your choice run: `cadEVM token-template`. It will download the template that serves as a proof of concept for this library. It will download all the necessary plugins, all you need to do is get an [Alchemy API key](https://www.alchemy.com/) as the template uses Alchemy. If you would like to use Infura you can change the ape-config.yaml as follows:
+For an existing project, leverage the Ape Contract instance. You can manually add the ABI or utilize the `ape-etherscan` plugin (included by default) to fetch the ABI from Etherscan. Subsequently, employ the `generate_initial_state` function from the helpers module to create `initial_state_variables` based on the contract's view methods. With `ape-accounts`, you can generate accounts/agents for interactions with the deployed contract.
+
+### Token Template [POC]
+
+To quickly set up a proof of concept, run: `cadEVM token-template` in the directory of your choice. This command downloads the template, showcasing the library's capabilities. All essential plugins will be fetched automatically. The only requirement is obtaining an [Alchemy API key](https://www.alchemy.com/), as the template is configured for Alchemy. If you prefer using Infura, modify the `ape-config.yaml` as follows:
+
+
 
 ```yaml name: Token template
 plugins:
@@ -74,23 +87,26 @@ hardhat:
         enable_hardhat_deployments: true
 ```
 
-In order to understand the rationale, template contains smart contracts & a  python notebook to demonstrate the usage of of this library on both previously developed contracts (DAI stablecoin contract) & contracts that are not yet deployed on the network. It uses hardhat to fork the Ethereum mainnet.
+**Understanding the Template:**
+
+To grasp the underlying logic, the template includes smart contracts and a Python notebook. It serves as a demonstration of this library's usage on both previously developed contracts (like the DAI stablecoin contract) and contracts that are not yet deployed on the network. The template utilizes Hardhat to fork the Ethereum mainnet.
 
 ## Roadmap & Plans
 
-1. Create more modules that will make cadEVM more configurable, both in terms of initialization & usage
-2. Create modules that will tackle agent based properties and enable easy creation of different types of agents based on assumptions or on the current state of the network
-3. Create modules that track transaction fees, certain points of interests etc. 
-4. Be less dependent on the other frameworks & libraries
-5. Make the technicalities such as deploying the contracts, contract details more intuitive and easy to use
+1. Enhance configurability: Develop additional modules to make cadEVM more configurable in terms of both initialization and usage.
+2. Agent-based properties: Create modules to address agent-based properties, enabling the easy creation of different agent types based on assumptions or the current network state.
+3. Tracking modules: Develop modules to track transaction fees, specific points of interest, etc.
+4. Framework independence: Reduce dependence on external frameworks and libraries.
+5. Improved usability: Make technical aspects, such as deploying contracts and contract details, more intuitive and user-friendly.
 
 ## Contributing
 
-For those willing to contribute:
+For those eager to contribute:
 
-1. **Fork the Repository**: To contribute to this project, start by forking the repository to your GitHub account.
-2. **Make Changes**: Implement your enhancements or fix issues in your forked repository, and ensure your changes align with the project's goals.
-3. **Submit a Pull Request**: Once satisfied with your changes, submit a pull request, detailing the modifications made and addressing any relevant issues. Your contributions are highly appreciated!
+1. **Fork the Repository:** Contribute to this project by forking the repository to your GitHub account.
+2. **Make Changes:** Implement your enhancements or fix issues in your forked repository, ensuring your changes align with the project's goals.
+3. **Submit a Pull Request:** Once content with your changes, submit a pull request. Provide details about the modifications made and address relevant issues. Your contributions are highly appreciated!
+
 
 
 
